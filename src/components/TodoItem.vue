@@ -1,5 +1,5 @@
 <template>
-  <div class="col-md-3 todo-card m-3 p-0 align-items-baseline" v-if="todo.isDone === true" :key="todo.id">
+  <div class="col-md-3 todo-card m-3 p-0 align-items-baseline" v-if="todo.isDone === false" :key="todo.id">
     <div class="title-area">
       <span>
         <b>{{ todo.id }} . TASK</b>
@@ -8,9 +8,6 @@
     <div class="description-area">
       <p>
         {{ todo.description }}
-      </p>
-      <p>
-        ( {{todo.isDone}}  )
       </p>
     </div>
     <div class="operational-area">
@@ -35,11 +32,8 @@
       </span>
     </div>
     <div class="description-area">
-      <p>
+      <p style="text-decoration: line-through">
         {{ todo.description }}
-      </p>
-      <p>
-        ( {{todo.isDone}}  )
       </p>
     </div>
     <div class="operational-area">

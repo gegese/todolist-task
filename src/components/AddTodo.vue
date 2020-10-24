@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container align-left">
     <h4>Add Task</h4>
     <form @submit="submit">
       <div class="form-group">
@@ -8,8 +8,8 @@
         <small id="descriptionHelp" class="form-text text-muted">You have to write explanation of task shortly</small>
       </div>
       <div class="form-group">
-        <label for="isDone">Task is done ?</label>
-        <input type="text" class="form-control" id="isDone" v-model="isDone">
+        <!-- <label for="isDone">Task is done ?</label> -->
+        <input type="hidden" class="form-control" id="isDone" v-model="isDone" value="True">
       </div>
       <button type="submit" class="btn btn-primary" value="Send">Submit</button>
     </form>
@@ -23,13 +23,11 @@ import { InMemoryCache } from "apollo-cache-inmemory";
 const ADD_TODO = gql`
   mutation addTodo(
     $description: String!
-    $isDone: Boolean!
   ) {
     insert_todos(
       objects: [
         {
           description: $description
-          isDone: $isDone
         }
       ]
     ) {
@@ -51,13 +49,12 @@ export default {
   methods: {
     submit(e) {
       e.preventDefault();
-      const { id, description, isDone } = this.$data;
+      const { id, description} = this.$data;
       this.$apollo.mutate({
         mutation: ADD_TODO,
         variables: {
           id,
-          description,
-          isDone
+          description
         },
         refetchQueries: ["getTodos"]
       });

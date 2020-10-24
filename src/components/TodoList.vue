@@ -12,7 +12,7 @@ import gql from "graphql-tag";
 
 const GET_TODOS = gql`
   query getTodos {
-    todos {
+    todos(order_by: { id: desc }) {
       id
       description
       isDone
