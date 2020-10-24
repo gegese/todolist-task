@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <div class="row justify-content-center">
-      <todo-item v-for="todo in todos" :key="todo.id" :todo="todo"> </todo-item>
+      <todo-item v-for="todo in todos" :key="todo.id" :todo="todo"></todo-item>
     </div>
   </div>
 </template>
