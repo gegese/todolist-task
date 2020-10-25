@@ -64,3 +64,17 @@ export default {
   }
 };
 </script>
+
+<style>
+a{
+  color: #d2d2d7;
+  transition: all .2s;
+}
+a:hover{
+  color: #000;
+}
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+	color: #fff;
+	background-color: #d2d2d7;
+}
+</style>
