@@ -6,9 +6,16 @@
       </span>
     </div>
     <div class="description-area">
-      <p>
-        {{ todo.description }}
-      </p>
+      <div class="has-margin" v-if="!editing">
+        <p class='text' @click="enableEditing(todo.description)">
+          {{todo.description}}
+        </p>
+      </div>
+      <div class="edit-control" v-if="editing">
+        <textarea class="form-control mb-2" v-model="tempValue" rows="2"></textarea>
+        <button class="btn btn-outline-secondary btn-sm float-right" @click="saveEdit(todo)"> Save </button>
+        <button class="btn btn-outline-danger btn-sm mr-2 float-right" @click="disableEditing"> Cancel </button>
+      </div>
     </div>
     <div class="operational-area">
       <div class="delete">
@@ -93,12 +100,35 @@ const CHECK_TODO = gql`
    }
  `;
 
+ const EDIT_TODO = gql`
+    mutation update_todos(
+      $id: Int!,
+      $description: String!
+    ) {
+      update_todos(
+        where: {
+          id: {
+            _eq: $id
+          }
+        },
+        _set: {
+          description: $description
+        }
+      ) {
+        affected_rows
+      }
+    }
+`;
+
 export default {
   name: "TodoItem",
   props: ["todo"],
   data() {
     return {
-      description: ""
+      description: "",
+      value: "",
+      tempValue: null,
+      editing: false,
     };
   },
   apollo: {},
@@ -126,6 +156,32 @@ export default {
           }
         },
       });
+    },
+    enableEditing: function(description){
+      this.tempValue = description;
+      this.editing = true;
+    },
+    disableEditing: function(){
+      this.tempValue = null;
+      this.editing = false;
+    },
+    saveEdit: function(todo) {
+      // However we want to save it to the database
+      this.value = this.tempValue;
+      this.$apollo.mutate({
+        mutation: EDIT_TODO,
+        variables: {
+          id: todo.id,
+          description: this.value
+        },
+        refetchQueries: ["getTodos"],
+        update: (store, { data: { update_todos } }) => {
+          if (update.todos.affected_rows) {
+            console.log(update_todos);
+          }
+        }
+      })
+      this.disableEditing();
     }
   }
 };
@@ -159,8 +215,12 @@ export default {
       text-align: left;
       color: #000;
       padding: 5px;
+      width: 100%;
       p{
         margin-left: 10px;
+      }
+      .has-margin {
+        margin-bottom: 10px;
       }
     }
     .operational-area{
@@ -212,5 +272,10 @@ export default {
         }
       }
     }
+  }
+
+  .edit-control{
+    margin-bottom: 10px;
+    width: 100%;
   }
 </style>
