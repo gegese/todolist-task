@@ -1,17 +1,18 @@
 <template>
-  <div class="container align-left">
-    <h4>Add Task</h4>
+  <div class="container align-left add-box">
+    <h2 class="text-uppercase">Add Task</h2>
     <form @submit="submit">
-      <div class="form-group">
-        <label for="description">Task description</label>
-        <input type="text" class="form-control" id="description" aria-describedby="descriptionHelp" v-model="description">
+      <div class="form-group text-left">
+        <label for="description"><b>Task description</b></label>
+        <!-- <input type="text" class="form-control" id="description" aria-describedby="descriptionHelp" v-model="description"> -->
+        <textarea class="form-control" id="description" aria-describedby="descriptionHelp" v-model="description" rows="3"></textarea>
         <small id="descriptionHelp" class="form-text text-muted">You have to write explanation of task shortly</small>
       </div>
       <div class="form-group">
         <!-- <label for="isDone">Task is done ?</label> -->
         <input type="hidden" class="form-control" id="isDone" v-model="isDone" value="True">
       </div>
-      <button type="submit" class="btn btn-primary" value="Send">Submit</button>
+      <button type="submit" class="btn btn-outline-secondary btn-md btn-block " value="Send"><span class="is-normal">Submit</span></button>
     </form>
   </div>
 </template>
@@ -66,5 +67,13 @@ export default {
 <style lang="scss" scoped>
   form{
     margin-bottom: 0;
+  }
+  .is-normal {
+    font-weight: 500;
+  }
+  .add-box {
+    border: 1px solid #d2d2d7;
+    border-radius: 5px;
+    padding: 20px;
   }
 </style>

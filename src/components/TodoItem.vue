@@ -13,13 +13,13 @@
     <div class="operational-area">
       <div class="delete">
         <div class="circle-delete-button">
-          <a type="button" @click="deleteTodo(todo)" value="Delete"><i class="far fa-trash-alt"  style="color: #F04022;"></i></a>
+          <a type="button" @click="deleteTodo(todo)" value="Delete"><i class="far fa-trash-alt red"></i></a>
         </div>
       </div>
       <div class="isDone">
         <a type="button" @click="handleTodoCheck(todo)" value="Done">
           <div class="circle-check-button">
-            <i class="fas fa-check" style="color: #5BDB93;"></i>
+            <i class="fas fa-check green"></i>
           </div>
         </a>
       </div>
@@ -39,7 +39,7 @@
     <div class="operational-area">
       <div class="delete">
         <div class="circle-delete-button">
-          <a type="button" @click="deleteTodo(todo)" value="Delete"><i class="far fa-trash-alt"  style="color: #F04022;"></i></a>
+          <a type="button" @click="deleteTodo(todo)" value="Delete"><i class="far fa-trash-alt red"></i></a>
         </div>
       </div>
       <div class="isDone">
@@ -187,6 +187,9 @@ export default {
           height: 32px;
           margin-top: 5px;
           margin-bottom: 5px;
+          .green {
+            color: #5BDB93;
+          }
         }
       }
       .delete{
@@ -203,6 +206,9 @@ export default {
           height: 32px;
           margin-top: 5px;
           margin-bottom: 5px;
+          .red {
+            color: #F04022;
+          }
         }
       }
     }

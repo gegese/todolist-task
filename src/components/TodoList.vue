@@ -1,32 +1,30 @@
 <template>
   <div class="container-fluid">
-    <div class="container">
-    <hr>
-    <ul class="nav nav-pills nav-justified" id="myTab" role="tablist">
+    <div class="container mt-4 has-border">
+    <ul class="nav nav-pills nav-justified" id="situationTab" role="tablist">
           <li class="nav-item">
-            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">All</a>
+            <a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All</a>
           </li>
       <li class="nav-item">
-        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Not done</a>
+        <a class="nav-link" id="not-done-tab" data-toggle="tab" href="#not-done" role="tab" aria-controls="not-done" aria-selected="false">Not done</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Done</a>
+        <a class="nav-link" id="done-tab" data-toggle="tab" href="#done" role="tab" aria-controls="done" aria-selected="false">Done</a>
       </li>
     </ul>
-    <hr>
     </div>
-    <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <div class="tab-content" id="situationTabContent">
+      <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
         <div class="row justify-content-center">
           <todo-item v-for="todo in todos" :key="todo.id" :todo="todo"></todo-item>
         </div>
       </div>
-      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      <div class="tab-pane fade" id="not-done" role="tabpanel" aria-labelledby="not-done-tab">
         <div class="row justify-content-center">
           <todo-item v-for="todo in todos" :key="todo.id" :todo="todo" v-if="todo.isDone === false"></todo-item>
         </div>
       </div>
-      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+      <div class="tab-pane fade" id="done" role="tabpanel" aria-labelledby="done-tab">
         <div class="row justify-content-center">
           <todo-item v-for="todo in todos" :key="todo.id" :todo="todo" v-if="todo.isDone === true"></todo-item>
         </div>
@@ -67,8 +65,9 @@ export default {
 
 <style>
 a{
-  color: #d2d2d7;
-  transition: all .2s;
+  color: #6c757d;
+  font-weight: 500;
+  transition: all .3s;
 }
 a:hover{
   color: #000;
@@ -76,5 +75,10 @@ a:hover{
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
 	color: #fff;
 	background-color: #d2d2d7;
+}
+.has-border {
+  border: 1px solid #d2d2d7;
+  padding: 10px;
+  border-radius: 5px;
 }
 </style>
