@@ -34,12 +34,12 @@
   </div>
   <div class="col-md-3 todo-card m-3 p-0 align-items-baseline" v-else>
     <div class="title-area">
-      <span style="text-decoration: underline line-through overline">
+      <span class="done">
         <b>{{ todo.id }} . TASK</b>
       </span>
     </div>
     <div class="description-area">
-      <p style="text-decoration: line-through">
+      <p class="done">
         {{ todo.description }}
       </p>
     </div>
@@ -186,96 +186,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss">
-  .todo-card {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #d2d2d7;
-    border-radius: 5px;
-    .title-area{
-      color: #424242;
-      font-size: 1.1rem;
-      font-weight: 400;
-      background-color: #fafafa;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
-      border-bottom: 1px solid #d2d2d7;
-      text-align: left;
-      padding: 5px;
-      margin-bottom: 10px;
-      width: 100%;
-      span{
-        margin-left: 10px;
-      }
-    }
-    .description-area{
-      display: flex;
-      flex: 1 0 auto;
-      text-align: left;
-      color: #000;
-      padding: 5px;
-      width: 100%;
-      p{
-        margin-left: 10px;
-      }
-      .has-margin {
-        margin-bottom: 10px;
-      }
-    }
-    .operational-area{
-      display: flex;
-      justify-content: space-between;
-      flex-shrink: 0;
-      background-color: #fafafa;
-      border-bottom-left-radius: 5px;
-      border-bottom-right-radius: 5px;
-      border-top: 1px solid #d2d2d7;
-      padding: 5px;
-      width: 100%;
-      .isDone{
-        margin-right: 10px;
-        .circle-check-button{
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border: 1px;
-          background-color: #fff;
-          border: 1px solid #d2d2d7;
-          border-radius: 50%;
-          width: 32px;
-          height: 32px;
-          margin-top: 5px;
-          margin-bottom: 5px;
-          .green {
-            color: #5BDB93;
-          }
-        }
-      }
-      .delete{
-        margin-left: 10px;
-        .circle-delete-button{
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border: 1px;
-          background-color: #fff;
-          border: 1px solid #d2d2d7;
-          border-radius: 50%;
-          width: 32px;
-          height: 32px;
-          margin-top: 5px;
-          margin-bottom: 5px;
-          .red {
-            color: #F04022;
-          }
-        }
-      }
-    }
-  }
-
-  .edit-control{
-    margin-bottom: 10px;
-    width: 100%;
-  }
-</style>

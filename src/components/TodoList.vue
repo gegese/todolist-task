@@ -62,23 +62,3 @@ export default {
   }
 };
 </script>
-
-<style>
-a{
-  color: #6c757d;
-  font-weight: 500;
-  transition: all .3s;
-}
-a:hover{
-  color: #000;
-}
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-	color: #fff;
-	background-color: #d2d2d7;
-}
-.has-border {
-  border: 1px solid #d2d2d7;
-  padding: 10px;
-  border-radius: 5px;
-}
-</style>
