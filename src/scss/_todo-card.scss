@@ -49,43 +49,30 @@
     border-top: 1px solid #d2d2d7;
     padding: 5px;
     width: 100%;
+    .circle-button{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px;
+      background-color: #fff;
+      border: 1px solid #d2d2d7;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
     .isDone{
       margin-right: 10px;
-      .circle-check-button{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px;
-        background-color: #fff;
-        border: 1px solid #d2d2d7;
-        border-radius: 50%;
-        width: 32px;
-        height: 32px;
-        margin-top: 5px;
-        margin-bottom: 5px;
         .green {
           color: #5BDB93;
         }
-      }
     }
     .delete{
       margin-left: 10px;
-      .circle-delete-button{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px;
-        background-color: #fff;
-        border: 1px solid #d2d2d7;
-        border-radius: 50%;
-        width: 32px;
-        height: 32px;
-        margin-top: 5px;
-        margin-bottom: 5px;
         .red {
           color: #F04022;
         }
-      }
     }
   }
 }

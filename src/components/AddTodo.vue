@@ -1,5 +1,5 @@
 <template>
-  <div class="container align-left add-box">
+  <div class="container align-left has-border add-box">
     <h2 class="text-uppercase">Add Task</h2>
     <form @submit="submit">
       <div class="form-group text-left">

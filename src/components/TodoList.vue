@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <div class="container mt-4 has-border">
+    <div class="container mt-4 has-border nav-pills-area">
     <ul class="nav nav-pills nav-justified" id="situationTab" role="tablist">
           <li class="nav-item">
             <a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All</a>

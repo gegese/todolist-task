@@ -9,3 +9,18 @@
   color: #2c3e50;
   margin-top: 30px;
 }
+
+.has-border {
+  border: 1px solid #d2d2d7;
+  border-radius: 5px;
+  &.nav-pills-area {
+    padding: 10px;
+  }
+  &.add-box{
+    padding: 20px;
+  }
+}
+
+.is-normal {
+  font-weight: 500;
+}
